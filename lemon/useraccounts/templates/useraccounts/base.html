@@ -1,0 +1,14 @@
+{% extends 'theme/site_base.html' %}
+{% load staticfiles %}
+
+{% block extra_head %}
+	<link rel="stylesheet" type="text/css" href="{% static "useraccounts/css/style.css" %}">
+{% endblock extra_head %}
+
+{% block body %}
+	<div class="container">
+		{% block container %}
+
+		{% endblock container %}
+	</div>
+{% endblock body %}
