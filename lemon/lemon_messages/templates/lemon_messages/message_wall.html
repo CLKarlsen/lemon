@@ -1,0 +1,91 @@
+{% extends 'theme/base.html' %}
+{% load staticfiles %}
+{% block extra_head %} 
+        <link rel="stylesheet" href="/static/lemon_messages/css/style.css">
+{% endblock extra_head %}
+{% block pagecontent %}
+   <div class="container"> 
+    {% if user.is_authenticated %}
+
+    <div class="col-md-3">
+        <div class="well">
+            <br>
+            <h4>Your profile information:</h4>
+            <h5>Firstname: {{ user.first_name }}</h5>
+            <h5>Lastname: {{ user.last_name }}</h5>
+            <h5>Username: {{ user.username }}</h5>
+            <h5>Email: {{ user.email }}</h5>
+            <br>
+             <a href="{% url 'user_profile' %}" class="btn btn-block btn-sm btn-success text-center">Edit Profile</a>
+            <a href="{% url 'user_logout' %}" class="btn btn-block btn-sm btn-danger center-block text-center">Sign out</a>
+        </div>
+    </div>
+
+    <div class="row wall">
+        <div class="col-md-13">
+            <form class="form-horizontal" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="col-sm-10">
+                       <textarea class="form-control" rows="1" name="new_post" required placeholder="Whats on your mind?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary ">Publish</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% else %}
+        <div class="container">
+            <div class="page-header">
+                <h1 class="text-center">Lemon Wall <small>- register to write your own messages and to like others! </small></h1>
+            </div>
+        </div>
+    {% endif %}
+
+
+       <ul>
+        {% for message in messages %}
+            <li class="well" style="list-style:none; width: 600px; margin-left: auto; margin-right: auto;">
+                <p>Written by: {{ message.created_by }} </p>
+                <blockquote>{{ message.message }}</blockquote> 
+        
+        {% if user.is_authenticated %}
+                <button type="button" class="add-likes-link btn btn-default" aria-label="Like" data-messageid="{{ message.id }}">
+                  <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"> Like </span>
+                  
+                  {% endif %}
+                  
+                  <span class="label label-success label-as-badge" id="id-likes-for-message-{{ message.id }}"> {{ message.likes }}</span>
+                </button>
+
+                <a href="{% url 'message_details' message.id %}" class="btn btn-sm btn-warning pull-right">Details</a>
+            </li>
+        {% endfor %}
+        </ul>
+
+
+    <nav>
+        <ul class="pager">
+            {% if messages.has_previous %}
+                <li class="previous">
+                    <a href="?page={{ messages.previous_page_number }}">
+                    <span aria-hidden="true"> &larr; </span> Forrige
+                    </a>
+                </li>
+            {% endif %}
+                <li>
+                    <span class="current">
+                        Side {{ messages.number }} av {{ messages.paginator.num_pages }}
+                    </span>
+                </li>
+            {% if messages.has_next %}
+                <li class="next">
+                    <a href="?page={{ messages.next_page_number }}">
+                        Neste <span aria-hidden="true"> &rarr; </span>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'theme/base.html' %}
+{% load staticfiles %}
+{% block subheader %} Message details {% endblock %}
+{% block pagecontent %}
+
+        <h1 class="text-center"> Details about message {{ message.id }} </h1>
+        <br>
+
+	<div class="well well_center">
+		<h2>Written by: {{ message.created_by }} </h2>
+		<h5>Published: {{ message.created_datetime }} </h5>
+        
+                <br>
+        <blockquote>{{ message.message }}</blockquote> 
+
+
+        {% if user.is_authenticated %}
+        <button type="button" class="add-likes-link btn btn-default" aria-label="Like" data-messageid="{{ message.id }}">
+        	<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"> Like </span>
+                {% endif %}
+                <span class="label label-success label-as-badge" id="id-likes-for-message-{{ message.id }}">{{ message.likes }}</span>
+        </button>
+
+        <hr>
+        <a href="http://www.facebook.com/" class="btn btn-facebook">f | Share on Facebook</a>
+        <a href="{% url 'message_wall' %}" class="btn btn-danger pull-right">Go back</a>
+	</div>
+
+{% endblock %}
