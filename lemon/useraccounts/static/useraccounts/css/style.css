@@ -1,21 +1,52 @@
+/* FONTS */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700,900);
+
+/* OVERALL ASPECT */
+
 body {
-  background-image: url("/static/useraccounts/images/background2.jpg");
-  background-repeat:no-repeat;
+  background-color: #f2f2f2;
+    font-family: "Lato";
+    font-weight: 400;
+    font-size: 16px;
+    color: #555;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    
 }
+
+/* Titles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway";
+    font-weight: 300;
+    color: #333;
+}
+
+
+/* Paragraph & Typographic */
+p {
+    line-height: 28px;
+    margin-bottom: 25px;
+}
+
 .body{
   padding-top: 40px;
   padding-bottom: 40px;
 }
+
 .form-signin {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
   background-color: #FFFAFA;
 }
+
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
 }
+
 .form-signin .form-control {
   position: relative;
   height: auto;
@@ -25,14 +56,17 @@ body {
   padding: 10px;
   font-size: 16px;
 }
+
 .form-signin .form-control:focus {
   z-index: 2;
 }
+
 .form-signin input[type="text"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
+
 .form-signin input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
@@ -54,4 +88,24 @@ body {
 
 .center {
   text-align: center;
+}
+
+.alert{
+  width: 500px;
+}
+
+.panel-heading {
+  background-color:#efd34f;
+}
+
+.panel {
+  border: 1px solid #efd34f;
+}
+
+.input-group-addon {
+  background-color:#efd34f;
+}
+
+.btn_submit {
+    background-color: #efd34f;
 }
