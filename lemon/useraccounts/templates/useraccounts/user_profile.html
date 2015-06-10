@@ -1,7 +1,6 @@
 {% extends 'useraccounts/base.html' %}
 {% block container %}
 	<div class="container body">
-        <h1 class="center"> Edit your profile </h1>
             {% if user_saved_successfully %}
                 <div class="alert alert-success form-signin"> 
                     Changes has been successfully saved! 
@@ -16,9 +15,20 @@
                 <br>
             {% endif %}
 
+<div class="row">
+               
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+    
+    <div class="panel">
+        <div class="panel-heading">
+            <br>
+        </div>
 
     <form class="form-signin" method="POST" action="{% url 'user_edit_profile' %}">
         {% csrf_token %}
+
+        <h2 class="form-signin-heading">What would you like to change?</h2>
+        <hr>
 
         <div class="form-group">
             <label for="inputFirstName">First Name:</label>
@@ -35,9 +45,12 @@
             <input type="email" class="form-control" name="email" id="inputEmail" required value="{{ user.email }}">
         </div>
 
-      <button type="submit" class="btn btn-default">Submit</button>
-      <a href="{% url 'frontpage' %}" class="btn btn-danger">Go back</a>
+      <button type="submit" class="btn btn_submit">Submit</button>
+      <a href="{% url 'frontpage' %}" class="btn btn-default">Go back</a>
 </form>
+</div>
+</div>
+</div>
 </div>
 
 

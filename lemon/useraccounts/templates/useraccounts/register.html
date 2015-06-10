@@ -2,8 +2,6 @@
 {% block container %} 
 <div class="body">
 
-<img src="/static/useraccounts/images/lemon_half.png" width="150" class="center-block" alt="Lemon piece" />
-
 <br>
 
 {% if user_saved_successfully %}
@@ -33,12 +31,14 @@
 <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
     <div class="panel">
         <div class="panel-heading">
-            <strong> Register Yourself </strong>  
+            <br>
         </div>
         
         <div class="panel-body">
             <form method="POST" action="{% url 'user_register' %}"> 
                 {% csrf_token %}
+            <h2 class="center">Register new user</h2>
+            <hr>
 <br/>
 
 

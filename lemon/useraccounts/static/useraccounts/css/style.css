@@ -45,6 +45,7 @@ p {
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .form-signin .form-control {
@@ -108,4 +109,5 @@ p {
 
 .btn_submit {
     background-color: #efd34f;
+    color: #000;
 }

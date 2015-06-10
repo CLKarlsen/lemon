@@ -1,6 +1,14 @@
 {% extends 'useraccounts/base.html' %}
 {% block container %}
 	<div class="body">
+<div class="row">
+               
+	<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+    
+    <div class="panel">
+        <div class="panel-heading">
+        	<br>
+        </div>
 	<form class="form-signin" method="POST" action"{% url 'user_login' %}">
 		{% csrf_token %}
 		<h2 class="form-signin-heading">Please sign in</h2>
@@ -21,9 +29,12 @@
 		<input type="password" name="password" class="form-control" placeholder="Password" required>
 
 		<hr>
-		<button class="btn btn-primary" type="submit"> Sign in </button>
-		<a href="{% url 'frontpage' %}" class="btn btn-danger">Go back</a>
+		<button class="btn btn_submit" type="submit"> Sign in </button>
+		<a href="{% url 'frontpage' %}" class="btn btn-default">Go back</a>
 	</form>
+</div>
+</div>
+</div>
 </div>
 
 {% endblock %}
